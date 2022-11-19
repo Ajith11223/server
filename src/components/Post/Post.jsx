@@ -34,6 +34,7 @@ useEffect(()=>{
   const user = async() =>{
       const {data} = await getUser(userId);
      setName(data)
+     console.log(data,"postttttttttttttttttttt");
 
   }
   user()
@@ -77,7 +78,7 @@ const handleSave =(postId,userId)=>{
     
     <div className="Post" ref={ref}>
             {/* <h4>{name.firstname}</h4> */}
-    <img src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""} alt=""  />
+    <img src={data.image?data.image : ""} alt=""  />
 
     <div className="postReact">
         <img src={liked ? Heart : NotLike} alt="" style={{cursor:"pointer"}}  onClick={handleLike}/>

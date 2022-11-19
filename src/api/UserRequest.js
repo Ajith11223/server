@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API = axios.create({baseURL: "https://electric-blue-ray-yoke.cyclic.app"})
+const API = axios.create({baseURL: "https://shy-blue-bass.cyclic.app"})
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {

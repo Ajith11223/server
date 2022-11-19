@@ -3,6 +3,7 @@ const postReducer = (
     loading : false,
     error : false,
     uploading : false},action) =>{
+        console.log("data",action.data);
     switch(action.type){
       
         case "UPLOAD_START" :

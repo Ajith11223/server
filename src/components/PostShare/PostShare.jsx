@@ -9,7 +9,8 @@ import { UilTimes } from '@iconscout/react-unicons'
 import  { useDispatch } from 'react-redux'
 
 import {useSelector} from 'react-redux'
-import { uploadImage, uploadPost } from '../../action/uploadAction.js'
+import { uploadPost,uploadImage } from '../../action/uploadAction.js'
+// import {uploadImage} from '../../api/UploadRequest.js'
 
 
 const PostShare = () => {
@@ -36,7 +37,7 @@ const reset = () =>{
     desc.current.value = ""
 }
 
-const handleSubmit = (e) =>{
+const handleSubmit = async(e) =>{
   e.preventDefault();
 
   const newPost = {
@@ -49,14 +50,16 @@ const handleSubmit = (e) =>{
     data.append("name" , filename)
     data.append("file" ,image)
     newPost.image = filename;
-
+     data.append("userId",user._id)
+     data.append("desc",desc.current.value)
     try {
-        dispatch(uploadImage(data))
+      dispatch(uploadImage(data))
+    //  console.log(b,"jjjjjjjjjjjjjjjjjjjjjjjj");
     } catch (error) {
         console.log(error);        
     }   
   }
-  dispatch(uploadPost(newPost))
+//   dispatch(uploadPost(newPost))
   reset();
 }
     return (
